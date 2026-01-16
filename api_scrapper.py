@@ -16,8 +16,10 @@ for coin in data:
         "market_cap_usd" : coin["market_cap"]
     })
 df = pd.DataFrame(cleaned_data)
+#print upto 2 decimal places
+df["price_usd"] = df["price_usd"].round(2)
 print(df[["coin_name", "price_usd"]])
 timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
 file_name = f"crypto_data_{timestamp}.csv"
-df.to_csv(file_name, index= False)
+df.to_csv(file_name, index= False, float_format="%.2f")
 print("Data saved successfully", file_name)
