@@ -1,0 +1,6 @@
+services:
+  crypto-etl:
+    build: .
+    container_name: crypto_etl
+    volumes:
+      - ./output:/app/output
